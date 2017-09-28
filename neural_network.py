@@ -3,16 +3,18 @@ import os
 import numpy as np
 
 float_formatter = lambda x: "%.3f" % x
-np.set_printoptions(formatter={'float_kind':float_formatter})
+np.set_printoptions(formatter = {'float_kind':float_formatter})
 
 #sigmoid acrtivation function and derivate of sigmoid function
 def sigmoid(x, deriv = False):
+	#derivative of sigmoid is  x/1-x
 	if(deriv == True):
 		return x * (1 - x)
 	return 1 / (1 + np.exp(-x))
 
-#linear activation function for output layer
+#linear activation function for output layer - not working well 
 def linear(x, deriv = False):
+	#derivative of y=x is 0
 	if (deriv == True):
 		return 0
 	return x
@@ -34,12 +36,13 @@ def getData(file):
 
 
 #training data
-
 numInputs = 3
 numOutputs = 1
 numTraining = 40
 
 getData("data.csv")
+
+
 #renew seed - internet says this is good
 np.random.seed(1)
 
@@ -56,7 +59,7 @@ for i in range(50000):
 	layer2Err = outputs - layer2
 
 	#periodically print error
-	if (i% 10000) == 0:
+	if (i% 5000) == 0:
 		print ("Error for " + str(i) + " iteration: " + str(np.mean(np.abs(layer2Err))))
 		print(layer2)
 
@@ -74,6 +77,8 @@ for i in range(50000):
 print("Network trained")
 print("")
 
+
+#loop through to get new inputs - does not continue to train yet
 while True:
 	newInput = [0,0,0]
 	newInput[0] = int(input("enter new input1: "))
