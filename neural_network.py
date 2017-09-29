@@ -2,7 +2,8 @@ import csv
 import os
 import numpy as np
 
-float_formatter = lambda x: "%.3f" % x
+#set number digits after decimal point
+float_formatter = lambda x: "%.5f" % x
 np.set_printoptions(formatter = {'float_kind':float_formatter})
 
 #sigmoid acrtivation function and derivate of sigmoid function
