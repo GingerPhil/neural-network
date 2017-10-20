@@ -50,6 +50,7 @@ np.random.seed(1)
 #randomly generate inital weights from -1 to 1
 synapse0 = 2*np.random.random((numInputs, numTraining)) - 1
 synapse1 = 2*np.random.random((numTraining, numOutputs)) - 1
+synapse3 = 2*np.random.random(())
 
 for i in range(50000):
 	# Feed forward through layers 0, 1, and 2
